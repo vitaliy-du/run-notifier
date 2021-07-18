@@ -1,0 +1,21 @@
+{
+	"name": "run-notifier",
+	"version": "1.0.1",
+	"description": "Allows you to notify listeners.",
+	"main": "index.js",
+	"scripts": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vitaliy-du/run-notifier.git"
+	},
+	"author": "Vitaliy Dyukar",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/vitaliy-du/run-notifier/issues"
+	},
+	"homepage": "https://github.com/vitaliy-du/run-notifier#readme",
+	"types": "index.d.ts",
+	"keywords": [
+		"listen", "listener", "notification", "notifier", "notice", "notify", "subscribe", "subscriber"
+	]
+}
