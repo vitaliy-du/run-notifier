@@ -1,7 +1,7 @@
 /**
  * Notifier listener.
  */
-export type NotifierListener<Params> = (params: Params) => void;
+export type NotifierListener<Params> = number | object | string | ((params: Params) => void);
 
 /**
  * Notifier handler.
@@ -16,13 +16,13 @@ export class Notifier<Params> {
 	 * Called before adding the first notification listener.
 	 * Used to initialize any activity in inheritor.
 	 */
-	protected onStart();
+	protected onStart(): void;
 
 	/**
 	 * Called after removing the last notification listener.
 	 * Used to finalize any activity in inheritor.
 	 */
-	protected onStop();
+	protected onStop(): void;
 
 	/**
 	 * Add notification listener.
@@ -31,7 +31,7 @@ export class Notifier<Params> {
 	 * @param notice Handler. Called on listener notification;
 	 * @param extra Additional arguments.
 	 */
-	public addListener(listener: NotifierListener<Params>, notice?: NotifierNotice<Params>, ...extra): void;
+	public addListener(listener: NotifierListener<Params>, notice?: NotifierNotice<Params>, ...extra: any): void;
 
 	/**
 	 * Remove notification listener.

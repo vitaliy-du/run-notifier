@@ -1,6 +1,6 @@
 {
 	"name": "run-notifier",
-	"version": "1.0.1",
+	"version": "1.1.2",
 	"description": "Allows you to notify listeners.",
 	"main": "index.js",
 	"scripts": {},

@@ -17,14 +17,16 @@ npm install run-notifier --save
 ```tsx
 import {Notifier} from "run-notifier";
 
-const listener1 = (params) => console.log('listener 1.', params);
-const listener2 = (params) => console.log('listener 2.', params);
+const listener1 = (params: string) => console.log('listener 1.', params);
+const listener2 = (params: string) => console.log('listener 2.', params);
 
 const notifier: Notifier<string> = new Notifier();
 
 notifier.addListener(listener1);
 notifier.addListener(listener2);
-notifier.signal('test');
+notifier.signal('test A');
+// console --->>> listener 1. test A
+// console --->>> listener 2. test A
 notifier.removeListener(listener1);
 notifier.removeListener(listener2);
 
@@ -32,7 +34,9 @@ notifier.removeListener(listener2);
 
 notifier.addListener('listener1', listener1);
 notifier.addListener('listener2', listener2);
-notifier.signal('test');
+notifier.signal('test B');
+// console --->>> listener 1. test B
+// console --->>> listener 2. test B
 notifier.removeListener('listener1');
 notifier.removeListener('listener2');
 
@@ -41,7 +45,9 @@ notifier.removeListener('listener2');
 notifier.addListener('listener1', listener2);
 notifier.addListener('listener1', listener1); // replace listener with same key
 notifier.addListener('listener2', listener2);
-notifier.signal('test');
+notifier.signal('test C');
+// console --->>> listener 1. test C
+// console --->>> listener 2. test C
 notifier.removeListener('listener1');
 notifier.removeListener('listener2');
 

@@ -2,6 +2,11 @@ function Map() {
 	var keys = [];
 	var vals = [];
 
+	this.clear = function () {
+		this.keys = [];
+		this.vals = [];
+	}
+
 	this.delete = function (key) {
 		var i = keys.indexOf(key);
 		if (i < 0) return false;
@@ -12,6 +17,17 @@ function Map() {
 
 	this.forEach = function (callbackFn) {
 		keys.forEach((key, i) => callbackFn(vals[i], key, this));
+	}
+
+	this.set = function (key, value) {
+		var i = keys.indexOf(key);
+		if (i >= 0) {
+			vals[i] = value;
+		} else {
+			keys.push(key);
+			vals.push(value);
+		}
+		return this;
 	}
 
 	Object.defineProperty(this, 'size', {
@@ -30,6 +46,10 @@ export function Notifier() {
 	this.addListener = function (listener, notice, ...extra) {
 		this._listeners.size || this.onStart();
 		this._listeners.set(listener, {extra: {...extra}, notice});
+	}
+
+	this.clear = function () {
+		this._listeners.clear();
 	}
 
 	this.notify = function (listener, target, params) {
