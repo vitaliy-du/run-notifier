@@ -34,6 +34,11 @@ export class Notifier<Params> {
 	public addListener(listener: NotifierListener<Params>, notice?: NotifierNotice<Params>, ...extra: any): void;
 
 	/**
+	 * Remove all notification listeners.
+	 */
+	public clear(): void;
+
+	/**
 	 * Remove notification listener.
 	 *
 	 * @param listener Listener.
